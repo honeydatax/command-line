@@ -1,0 +1,1 @@
+ print using command(1) ;val(command(2))
