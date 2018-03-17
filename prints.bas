@@ -1,0 +1,1 @@
+print command(1)
