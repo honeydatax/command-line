@@ -7,6 +7,7 @@ dim c as integer=0
 dim x as integer
 dim y as integer
 dim bt as integer
+dim ab as integer
                 
 sub add (s as string)
           l(i)=s                
@@ -47,25 +48,25 @@ do
           do                
           a=inkey$()
           if a<>"" then exit do
-          a=getmouse(x,y,,bt)
+          ab= getmouse (x,y, ,bt)
           if bt<>0 then exit do
           
           loop
-          a=inkey$()
+         
           if a=chr$(27) then 
           open command(2) for output as 1
-          print #1,l(y+c)
+          print #1,""
           close 1
 exit do
 end if
 
           if a=chr$(8) then c=c-22
           if a=chr$(13) then c=c+22
-          a=a=getmouse(x,y,,bt)
-          if bt<>1 then 
-          if y+c<=i then 
+          
+          if bt<>0 then 
+          if y+c-1<=i and y>0 and y<22 then 
           open command(2) for output as 1
-          print #1,l(y+c)
+          print #1,l(c+y-1)
           close 1
           exit do
           end if
