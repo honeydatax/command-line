@@ -27,48 +27,60 @@ sub loadlist ()
 end sub                
                 
                 
-                
+i=0          
 a=command(1)
-loadlist                
+loadlist             
+screen 12
+color 15,1
+                
+setmouse 14,12,1,0
 do                
-          color 1,15
+          ScreenLock
           cls                
                           
           locate 1,80/2-(len(aa)/2)
                           
           print aa                
-          if c+22>i then c=i-22
+          if c+24>i then c=i-24
           if c<0 then c=0
-          for b=1 to 22
-                    locate 1+b,1
+          for b=0 to 23
+                    locate 2+b,1
                     if b+c <= i then print l(b+c);
           next b                
-          locate 25,1
+          locate 27,1
+                          
           print "press esc to exit ,enter to move next page ,del move back page";
-          do                
-          a=inkey$()
-          if a<>"" then exit do
-          ab= getmouse (x,y, ,bt)
-          if bt<>0 then exit do
-          
-          loop
-         
-          if a=chr$(27) then 
-          open command(2) for output as 1
-          print #1,""
-          close 1
-exit do
-end if
-
-          if a=chr$(8) then c=c-22
-          if a=chr$(13) then c=c+22
-          
+          ScreenUnlock
+          do          
+                    ab= getmouse (x,y, ,bt)
+                    if bt<>0 then exit do
+                    a=inkey$()
+                    if a<>"" and bt =0 then exit do
+                                    
+                                    
+          loop                
+                          
           if bt<>0 then 
-          if y+c-1<=i and y>0 and y<22 then 
-          open command(2) for output as 1
-          print #1,l(c+y-1)
-          close 1
-          exit do
-          end if
-          end if
+                    y=y/16-1                
+                    if y+c<=i and y>-1 and y<25 then 
+                              open command(3) for output as 1
+                              print #1,l(c+y)
+                              close 1                
+                                              
+                              exit do                
+                    end if                
+          end if                
+                          
+                          
+          if a=chr$(27) then 
+                    open command(3) for output as 1
+                    print #1,""
+                    close 1                
+                    exit do                
+          end if                
+                          
+          if a=chr$(8) then c=c-24
+          if a=chr$(13) then c=c+24
+                          
+                          
 loop                
