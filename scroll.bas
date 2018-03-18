@@ -35,8 +35,8 @@ do
           print aa                
           if c+22>i then c=i-22
           if c<0 then c=0
-          for b=1 to 22
-                    locate 1+b,1
+          for b=0 to 21
+                    locate 2+b,1
                     if b+c <= i then print l(b+c);
           next b                
           locate 25,1
