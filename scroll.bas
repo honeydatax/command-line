@@ -31,8 +31,9 @@ do
           cls                
                           
           locate 1,80/2-(len(aa)/2)
-                          
-          print aa                
+                  color 15,1        
+          print aa             
+   color 1,15
           if c+22>i then c=i-22
           if c<0 then c=0
           for b=0 to 21
@@ -40,8 +41,10 @@ do
                     if b+c <= i then print l(b+c);
           next b                
           locate 25,1
+          color 15,1
           print "press esc to exit ,enter to move next page ,del move back page";
-          sleep                
+         color 1,15
+ sleep                
           a=inkey$()
           if a=chr$(27) then exit do
           if a=chr$(8) then c=c-22
