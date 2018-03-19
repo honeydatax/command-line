@@ -50,7 +50,10 @@ do
           locate 27,1
                           
           print "press esc to exit ,enter to move next page ,del move back page";
-          ScreenUnlock
+         line(0,16)-(639,16),0
+          line(0,26*16)-(639,26*16),0
+ ScreenUnlock
+          
           do          
                     ab= getmouse (x,y, ,bt)
                     if bt<>0 then exit do
