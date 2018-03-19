@@ -7,5 +7,6 @@ echo select * from list>>inp.txt
 echo  ; >>inp.txt
 echo .quit >>inp.txt
 
-sqlite3 client.db < inp.txt 
+sqlite3 client.db < inp.txt  >out.txt
+scroll out.txt "report output"
 echo on
