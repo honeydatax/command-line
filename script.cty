@@ -1,0 +1,9 @@
+dir a
+mem
+echo hello world
+goto escape
+echo escape1
+echo escape2
+echo escape3
+:escape
+pause
