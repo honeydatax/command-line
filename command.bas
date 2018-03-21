@@ -22,6 +22,13 @@ Sub list_files (ByRef filespec As String, ByVal attrib As Integer )
     
 End Sub
 
+
+sub errr (ints as integer,er as string)
+if ints<> 0 then print "error-" ; er
+end sub
+
+
+
 sub dirs()
 if c="" or c=" " then c="*.*"
 list_files "*", fbdirectory
@@ -30,17 +37,23 @@ d=0
 end sub
 
 sub mkdirs()
+err=0
 mkdir (c)
+errr err ," mkdir error"
 d=0
 end sub
 
 sub cds()
+err=0
 chdir(c)
+errr err ,"chdir error"
 d=0
 end sub
 
 sub dels()
+err=0
 kill(c)
+errr err ,"delete error"
 d=0
 end sub
 
@@ -82,7 +95,7 @@ b=lcase(a)
 e=instr(a," ")
 f=len(a)
 c=""
-if e>0 then c=mid$(a,e)
+if e>0 then c=mid$(a,e+1)
 d=1
 
 if instr(b,"dir ")=1 then dirs
