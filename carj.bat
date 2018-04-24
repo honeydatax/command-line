@@ -16,6 +16,6 @@ appends out4.txt temp.bat
 color 15 1
 prints "compact file in arj"
 prints "%t%"
-zip  "%o%.arj" "%t%" 
+arj  a "%o%.arj" "%t%" 
 
 echo on
