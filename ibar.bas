@@ -4,13 +4,13 @@ dim i as integer
 dim d as integer
 dim c as integer=0
 
+
+
 color 15,1
 cls
-
 open cons for input as #1
 do
 line input #1,s
-
 if asc(s)>=asc("0") and asc(s)<=asc("9") then
 d=0
 d=val(s)
